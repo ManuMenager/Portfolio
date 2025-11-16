@@ -1,0 +1,542 @@
+/* --- 1. Variables Globales y Reseteo --- */
+:root {
+    --primary-color: #0d6efd;
+    --dark-gray: #212529;
+    --mid-gray: #6c757d;
+    --light-gray: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+    --button-primary-bg: #1a73e8;
+    --button-primary-hover: #1764c7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--white);
+    color: var(--dark-gray);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* --- 2. Contenedor Principal y Layout --- */
+body > header,
+main,
+body > footer {
+    width: 100%;
+    margin: 0 auto;
+}
+
+main > section {
+    padding: 4rem 0;
+}
+
+section > header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+section > header h2 {
+    font-size: 2.5rem;
+    color: var(--dark-gray);
+}
+
+section > header p {
+    font-size: 1.15rem;
+    color: var(--mid-gray);
+}
+
+/* Da un fondo gris claro a las secciones pares (Proyectos y Experiencia) */
+main > section:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+/* --- 3. Header y Navegación (Ajustado para el HTML corregido) --- */
+body > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: var(--light-gray);
+    border-bottom: 1px solid #dee2e6;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+body > header .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark-gray);
+    font-weight: 700;
+}
+
+body > header .logo h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0;
+}
+
+body > header .logo svg {
+    color: var(--primary-color);
+}
+
+body > header nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+body > header nav a {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+    border-radius: var(--border-radius);
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+body > header nav a:hover {
+    color: var(--primary-color);
+    background-color: #e9ecef;
+}
+
+/* --- 4. Sección "Sobre Mí" (Hero) (Ajustado para el HTML corregido) --- */
+section.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 6rem 2rem;
+    text-align: left;
+}
+
+.hero-content {
+    flex: 1 1 500px;
+    max-width: 600px;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+}
+
+.hero-content h3 {
+    font-size: 1.8rem;
+    color: var(--mid-gray);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content .tagline {
+    font-size: 1.15rem;
+    color: var(--mid-gray);
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.hero-actions .button.primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    background-color: var(--button-primary-bg);
+    color: var(--white);
+    border: 1px solid var(--button-primary-bg);
+}
+
+.hero-actions .button.primary:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border: 5px solid var(--white);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Estilos para los iconos sociales del Hero --- */
+.hero-social-icon {
+    background: var(--button-primary-bg);
+    border: 1px solid var(--button-primary-bg);
+    padding: 0;
+    border-radius: 50%;
+    width: 44px;  /* Un poco más grande que los del footer */
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-social-icon:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
+}
+
+.hero-social-icon img {
+    width: 22px;  /* Ajusta el tamaño del logo */
+    height: 22px;
+}
+
+/* --- 5. Estilo de "Tarjetas" (Cards) --- */
+section:nth-child(2) > footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Contenedor de grilla para Formación y Experiencia (Layout "diagonal") */
+section#estudios,
+section#experiencia {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna */
+    gap: 2.5rem; /* Espacio vertical */
+}
+
+article {
+    background: var(--white);
+    border: 1px solid #dee2e6;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 1;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+article img[src^="https://images.unsplash.com"] {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+article h3 { font-size: 1.3rem; }
+article h4 { font-size: 1rem; color: var(--mid-gray); font-weight: 500; }
+article p { font-size: 0.9rem; margin-bottom: 1rem; }
+
+article ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+article ul li {
+    font-size: 0.75rem;
+    background-color: #e6f2ff;
+    color: #0b5ed7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-weight: 500;
+}
+
+/* Estilo para botones (Github en Proyectos y Diploma) */
+button,
+a[target="_blank"] > button {
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-top: auto;
+}
+
+button:hover,
+a[target="_blank"] > button:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+}
+
+.js-abrir-modal {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.js-abrir-modal:hover {
+    background-color: #f8f9fa;
+}
+
+/* --- 5.B. Estilos del Timeline --- */
+
+/* Prepara los contenedores de sección */
+section#estudios,
+section#experiencia {
+    position: relative;
+}
+
+/* La línea (el "caminito") vertical */
+section#estudios::before,
+section#experiencia::before {
+    content: '';
+    position: absolute;
+    top: 12.5rem;
+    bottom: 4rem;
+    left: 50%;
+    width: 4px;
+    background-color: #dee2e6; /* Color de la línea */
+    transform: translateX(-2px); /* Centra la línea */
+    z-index: 0; /* Detrás de las tarjetas (article) */
+}
+
+/* Oculta la línea en móviles, donde el layout es de 1 columna */
+@media (max-width: 767px) {
+    section#estudios::before,
+    section#experiencia::before {
+        display: none;
+    }
+}
+
+/* El "punto" que conecta la tarjeta a la línea (solo en Desktop) */
+@media (min-width: 768px) {
+    section#estudios article::after,
+    section#experiencia article::after {
+        content: '';
+        position: absolute;
+        top: 1.5rem; /* Alinea el punto con el padding de la tarjeta */
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        border: 3px solid var(--white); /* Borde blanco para que "flote" */
+        z-index: 2; /* Sobre la línea y la tarjeta */
+    }
+
+    /* Posiciona el punto a la DERECHA (para tarjetas de la izquierda) */
+    section#estudios article:nth-child(odd)::after,
+    section#experiencia article:nth-child(odd)::after {
+        right: -8px; /* (Mitad del punto) */
+    }
+    
+    /* Posiciona el punto a la IZQUIERDA (para tarjetas de la derecha) */
+    section#estudios article:nth-child(even)::after,
+    section#experiencia article:nth-child(even)::after {
+        left: -8px; /* (Mitad del punto) */
+    }
+}
+
+/* --- 6. Footer --- */
+body > footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #dee2e6;
+    color: var(--mid-gray);
+}
+
+body > footer a button {
+    background: none;
+    border: 1px solid #ced4da;
+    padding: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+body > footer a button img {
+    width: 20px;
+    height: 20px;
+}
+
+body > footer a button:hover {
+    border-color: var(--primary-color);
+    background-color: var(--white);
+}
+
+/* --- 7. Estilos del Modal (Centrado Corregido) --- */
+dialog {
+    padding: 0;
+    border: none;
+    background: transparent;
+    /* max-width: 90vw; <--- ELIMINADO PARA CENTRAR */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: var(--border-radius);
+    position: relative; 
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+dialog img {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+.js-cerrar-modal {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--white);
+    color: var(--dark-gray);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 10;
+    cursor: pointer;
+}
+.js-cerrar-modal:hover {
+    background: #e9ecef;
+}
+
+/* --- 8. Media Queries (Adaptabilidad) --- */
+@media (max-width: 768px) {
+    /* El header se apila */
+    body > header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    body > header .logo {
+        margin-right: 0;
+    }
+    body > header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* La sección "Sobre Mí" se apila */
+    section.hero {
+        padding: 4rem 0;
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    .hero-content h3 {
+        font-size: 1.4rem;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .hero-image {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+    .hero-image img {
+        max-width: 250px;
+        height: 250px;
+    }
+
+    /* El footer se apila y centra */
+    body > footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    body > footer small {
+        margin-right: 0;
+        order: 2;
+    }
+}
+
+/* Layout "Diagonal" para pantallas grandes */
+@media (min-width: 768px) {
+    section#estudios article,
+    section#experiencia article {
+        width: 50%;
+    }
+
+    section#estudios article:nth-child(even),
+    section#experiencia article:nth-child(even) {
+        justify-self: end;
+    }
+    
+    section#estudios article:nth-child(odd),
+    section#experiencia article:nth-child(odd) {
+        justify-self: start;
+    }
+}
