@@ -214,11 +214,10 @@ section.hero {
 
 /* --- Estilos para los iconos sociales del Hero --- */
 .hero-social-icon {
-    background: var(--button-primary-bg);
-    border: 1px solid var(--button-primary-bg);
+    border: 1px solid var(--button-primary-hover);
     padding: 0;
     border-radius: 50%;
-    width: 44px;  /* Un poco más grande que los del footer */
+    width: 44px;
     height: 44px;
     display: flex;
     justify-content: center;
@@ -303,9 +302,8 @@ article ul li {
 button,
 a[target="_blank"] > button {
     cursor: pointer;
-    border: 1px solid var(--primary-color);
-    background-color: var(--primary-color);
-    color: var(--white);
+    border: 1px solid var(--dark-gray);
+    color: var(--button-primary-bg);
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius);
     font-weight: 600;
@@ -319,8 +317,7 @@ a[target="_blank"] > button {
 
 button:hover,
 a[target="_blank"] > button:hover {
-    background-color: #0b5ed7;
-    border-color: #0b5ed7;
+    border-color: var(--primary-color);
 }
 
 .js-abrir-modal {
